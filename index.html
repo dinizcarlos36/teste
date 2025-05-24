@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Ensaios - Festa Junina 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1><i class="fas fa-music"></i> Agendamento de Ensaios - Festa Junina 2025</h1>
+                <nav>
+                    <button id="btnHome" class="nav-btn active">
+                        <i class="fas fa-home"></i> Início
+                    </button>
+                    <button id="btnCalendar" class="nav-btn">
+                        <i class="fas fa-calendar"></i> Ver Agenda
+                    </button>
+                    <button id="btnAdmin" class="nav-btn">
+                        <i class="fas fa-cog"></i> Administração
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Home Section -->
+                <section id="homeSection" class="section active">
+                    <div class="welcome-card">
+                        <h2><i class="fas fa-calendar-plus"></i> Novo Agendamento</h2>
+                        <p>Agende o ensaio da sua turma para a Festa Junina 2025</p>
+                        
+                        <form id="agendamentoForm" class="form">
+                            <div class="form-group">
+                                <label for="professor">
+                                    <i class="fas fa-user"></i> Nome do Professor *
+                                </label>
+                                <input type="text" id="professor" name="professor" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="espaco">
+                                        <i class="fas fa-building"></i> Espaço *
+                                    </label>
+                                    <select id="espaco" name="espaco" required>
+                                        <option value="">Selecione o espaço</option>
+                                        <option value="Ginásio J. Maia">Ginásio J. Maia</option>
+                                        <option value="Centro Esportivo">Centro Esportivo</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="serie">
+                                        <i class="fas fa-graduation-cap"></i> Série *
+                                    </label>
+                                    <select id="serie" name="serie" required>
+                                        <option value="">Selecione a série</option>
+                                        <option value="MATERNAL III A e MATERNAL II F">MATERNAL III A e MATERNAL II F</option>
+                                        <option value="MATERNAL III F/G">MATERNAL III F/G</option>
+                                        <option value="1º PERÍODO A e 2º PERÍODO A">1º PERÍODO A e 2º PERÍODO A</option>
+                                        <option value="1º PERÍODO F/G">1º PERÍODO F/G</option>
+                                        <option value="2º PERÍODO F/G">2º PERÍODO F/G</option>
+                                        <option value="1º ANO A e 2º ANO A">1º ANO A e 2º ANO A</option>
+                                        <option value="1º ANO F/G">1º ANO F/G</option>
+                                        <option value="2º ANO F/G">2º ANO F/G</option>
+                                        <option value="3º ANO A e 4º ANO A">3º ANO A e 4º ANO A</option>
+                                        <option value="3º ANO F/G">3º ANO F/G</option>
+                                        <option value="4º ANO F">4º ANO F</option>
+                                        <option value="5º ANO A">5º ANO A</option>
+                                        <option value="5º ANO F/G">5º ANO F/G</option>
+                                        <option value="6º ao 7º ANO">6º ao 7º ANO</option>
+                                        <option value="8º e 9º ANO">8º e 9º ANO</option>
+                                        <option value="1ª e 2ª série ENSINO MÉDIO">1ª e 2ª série ENSINO MÉDIO</option>
+                                        <option value="3ª série ENSINO MÉDIO">3ª série ENSINO MÉDIO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="data">
+                                    <i class="fas fa-calendar-day"></i> Data do Ensaio *
+                                </label>
+                                <input type="date" id="data" name="data" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="horaInicio">
+                                        <i class="fas fa-clock"></i> Horário de Início *
+                                    </label>
+                                    <input type="time" id="horaInicio" name="horaInicio" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="horaFim">
+                                        <i class="fas fa-clock"></i> Horário de Término *
+                                    </label>
+                                    <input type="time" id="horaFim" name="horaFim" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-save"></i> Agendar Ensaio
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Calendar Section -->
+                <section id="calendarSection" class="section">
+                    <div class="calendar-header">
+                        <h2><i class="fas fa-calendar"></i> Agenda de Ensaios</h2>
+                        
+                        <div class="filters">
+                            <select id="filterEspaco">
+                                <option value="">Todos os espaços</option>
+                                <option value="Ginásio J. Maia">Ginásio J. Maia</option>
+                                <option value="Centro Esportivo">Centro Esportivo</option>
+                            </select>
+                            <select id="filterProfessor">
+                                <option value="">Todos os professores</option>
+                            </select>
+                            <select id="filterSerie">
+                                <option value="">Todas as séries</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calendar-container">
+                        <div class="calendar-nav">
+                            <button id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+                            <span id="currentWeek"></span>
+                            <button id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        
+                        <div id="calendar" class="calendar"></div>
+                    </div>
+
+                    <div class="agendamentos-list">
+                        <h3>Próximos Ensaios</h3>
+                        <div id="agendamentosList"></div>
+                    </div>
+                </section>
+
+                <!-- Admin Section -->
+                <section id="adminSection" class="section">
+                    <div class="admin-login" id="adminLogin">
+                        <h2><i class="fas fa-lock"></i> Área Administrativa</h2>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="adminPassword">Senha de Administrador:</label>
+                                <input type="password" id="adminPassword" placeholder="Digite a senha">
+                            </div>
+                            <button type="submit">Entrar</button>
+                        </form>
+                    </div>
+
+                    <div class="admin-panel" id="adminPanel" style="display: none;">
+                        <h2><i class="fas fa-cogs"></i> Painel Administrativo</h2>
+                        <div class="admin-stats">
+                            <div class="stat-card">
+                                <h3 id="totalAgendamentos">0</h3>
+                                <p>Total de Agendamentos</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 id="agendamentosHoje">0</h3>
+                                <p>Ensaios Hoje</p>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-list">
+                            <h3>Gerenciar Agendamentos</h3>
+                            <div id="adminAgendamentosList"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <div class="modal-actions">
+                <button id="modalCancel" class="btn-cancel">Cancelar</button>
+                <button id="modalConfirm" class="btn-confirm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
